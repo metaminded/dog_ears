@@ -40,16 +40,33 @@ div#bookmarker {
     }
   }
 
-  #bookmark-list {
+  #bookmark-list, #bookmark-form {
     position: fixed;
     bottom: 32px;
     right: 0px;
     max-width: 400px;
     max-height: 400px;
-    z-index: 12000;
+    z-index: 12001;
     display: none;
     background-color: lightgray;
     border: 1px solid gray;
+    padding: 5px;
+    margin: 0;
+
+    a {
+      color: auto;
+    }
+  }
+
+  #bookmark-form {
+    bottom: 0px;
+    width: 300px;
+    height: 80px;
+    display: block;
+
+    input[type=text] {
+      width: 100px;
+    }
   }
 
 }

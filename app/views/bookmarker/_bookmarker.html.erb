@@ -7,4 +7,20 @@
     <span class="badge badge-<%= l %> level" "data-level"="<%= l %>"><%= c %></span>
   <% end %>
   <div id="bookmark-list"></div>
+  <form class="form" id="bookmark-form">
+    <div class="input-append">
+      <input class="span2" id="appendedDropdownButton" type="text">
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+    </div>
+
+  </form>
 <% end -%>

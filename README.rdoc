@@ -1,3 +1,27 @@
 = Bookmarker
 
+== routes.rb
+
+Add <tt>bookmarker</tt> in the appropriate place
+
+== controller
+
+Add a BookmarksController at the appropriate place. This needs to inherit fro your apps controllers, such that <tt>current_user</tt> is available:
+
+<pre>
+  class Admin::...::BookmarksController < Admin::...::ApplicationController
+    include Bookmarker::Controller
+  end
+</pre>
+
+== views/layout
+
+In you layout, use <tt><%= bookmarker admin_..._bookmarks_path %></tt> to inject the required html-code
+
+== stylesheets/javascript
+
+<tt>//= require bookmarker/application</tt> as usual :)
+
+== License
+
 This project rocks and uses MIT-LICENSE.
