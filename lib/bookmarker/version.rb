@@ -1,0 +1,3 @@
+module Bookmarker
+  VERSION = "0.0.1"
+end

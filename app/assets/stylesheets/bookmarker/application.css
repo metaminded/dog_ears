@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+
+div#bookmarker {
+  width: auto;
+  min-width: 20px;
+  height: 20px;
+  background-color: lightgray;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 12000;
+  border: 1px solid gray;
+  padding: 5px;
+  line-height: 15px;
+
+  i#bookmark-pin:hover, span.level {
+    cursor: pointer;
+  }
+
+  .bookmark-title {
+    display: none;
+  }
+
+  &.pinned {
+    background-color: lightgreen;
+
+    .bookmark-title {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  #bookmark-list {
+    position: fixed;
+    bottom: 32px;
+    right: 0px;
+    max-width: 400px;
+    max-height: 400px;
+    z-index: 12000;
+    display: none;
+    background-color: lightgray;
+    border: 1px solid gray;
+  }
+
+}

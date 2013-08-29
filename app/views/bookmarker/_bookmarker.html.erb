@@ -1,0 +1,10 @@
+<%= content_tag :div, id: 'bookmarker', class: (b && 'pinned'),
+  data: {path: request.env['PATH_INFO'], method: request.method,
+    url: bookmark_url, title: b.try(:title), id: b.try(:id) } do %>
+  <i class="icon-pushpin" id='bookmark-pin'></i>
+  <span class="bookmark-title"><%= b.try(:title) %></span>
+  <% Bookmarker::Bookmark.for_user(current_user).count_by_levels.each do |l,c| %>
+    <span class="badge badge-<%= l %> level" "data-level"="<%= l %>"><%= c %></span>
+  <% end %>
+  <div id="bookmark-list"></div>
+<% end -%>
