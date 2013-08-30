@@ -9,15 +9,19 @@ module Bookmarker
     def create
       path = params[:path]
       title = params[:title]
+      level = Bookmark::LEVELS[params[:level].to_i]
       title = nil if title == 'null'
       user = current_user
-      render json: Bookmarker.bookmark(user, path, title).to_json
+      b = Bookmarker.bookmark(user, path, title, level)
+      render partial: '/bookmarker/bookmarker',
+        locals: { bookmark_url: b.path, b: b, path: b.path, method: 'GET' }
     end
 
     def destroy
       @bookmark = Bookmarker::Bookmark.for_user(current_user).find(params[:id])
       @bookmark.destroy
-      render json: 'destroyed'.to_json
+      render partial: '/bookmarker/bookmarker',
+        locals: { bookmark_url: , b: nil, path: @bookmark.path, method: 'GET' }
     end
 
   end

@@ -1,26 +1,30 @@
+<% path   ||= request.env['PATH_INFO'] %>
+<% method ||= request.method %>
 <%= content_tag :div, id: 'bookmarker', class: (b && 'pinned'),
-  data: {path: request.env['PATH_INFO'], method: request.method,
+  data: {path: path, method: method,
     url: bookmark_url, title: b.try(:title), id: b.try(:id) } do %>
-  <i class="icon-pushpin" id='bookmark-pin'></i>
-  <span class="bookmark-title"><%= b.try(:title) %></span>
+  <% if method == 'GET' && !b %>
+    <button class="btn btn-mini" type="button" id='bookmark-pin'><i class="icon-pushpin"></i></button>
+  <% end %>
+  <span class="bookmark-title label label-<%= b.try(:level) %>"><%= b.try(:title) %></span>
+  <% if b %>
+    <button class="btn btn-mini" type="button" id='bookmark-pin'><i class="icon-trash"></i></button>
+    <button class="btn btn-mini" type="button" id='bookmark-share'><i class="icon-share"></i></button>
+  <% end %>
   <% Bookmarker::Bookmark.for_user(current_user).count_by_levels.each do |l,c| %>
-    <span class="badge badge-<%= l %> level" "data-level"="<%= l %>"><%= c %></span>
+    <span class="badge badge-<%= l %> level" data-level="<%= l %>"><%= c %></span>
   <% end %>
   <div id="bookmark-list"></div>
   <form class="form" id="bookmark-form">
     <div class="input-append">
-      <input class="span2" id="appendedDropdownButton" type="text">
-      <div class="btn-group">
-        <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div><!-- /btn-group -->
+      <input type="text" id="bookmarker-bookmark-name" />
+      <button class="btn" type="submit"><i class="icon-pushpin"></i></button>
     </div>
-
+    <input type="hidden" id="bookmarker-bookmark-level" value="0" />
+    <button data-level="0" class="btn btn-mini" type="button"><i class="icon-flag"></i></button>
+    <button data-level="1" class="btn btn-mini btn-primary" type="button"><i class="icon-flag"></i></button>
+    <button data-level="2" class="btn btn-mini btn-success" type="button"><i class="icon-flag"></i></button>
+    <button data-level="3" class="btn btn-mini btn-warning" type="button"><i class="icon-flag"></i></button>
+    <button data-level="4" class="btn btn-mini btn-danger" type="button"><i class="icon-flag"></i></button>
   </form>
 <% end -%>

@@ -16,7 +16,7 @@ module ActionDispatch::Routing
 
       #puts "\n\n\n#{options.to_s}\n\n\n"
 
-      resources :bookmarks, only: [:create, :delete, :index]
+      resources :bookmarks, only: [:create, :destroy, :index]
 
     end
   end

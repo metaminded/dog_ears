@@ -1,7 +1,7 @@
 module Bookmarker
   class Bookmark < ActiveRecord::Base
     # attr_accessible :title, :body
-    LEVELS = [nil, 'info', 'warning', 'important', 'success']
+    LEVELS = ['none', 'info', 'success', 'warning', 'important']
     validates_inclusion_of :level, in: LEVELS
 
     belongs_to :user

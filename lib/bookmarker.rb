@@ -9,6 +9,7 @@ module Bookmarker
       b.user = user
       b.path = path
       b.title = title.presence || path
+      b.level = level
     end
     b.save!
     b
