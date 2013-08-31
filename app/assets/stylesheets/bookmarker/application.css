@@ -37,7 +37,7 @@ div#bookmarker {
     }
   }
 
-  #bookmark-list, #bookmark-form {
+  #bookmark-list, #bookmark-form, #bookmark-transfer-form {
     position: fixed;
     bottom: 32px;
     right: 0px;
@@ -85,4 +85,12 @@ div#bookmarker {
     }
   }
 
+  #bookmark-transfer-form {
+    bottom: 0px;
+    padding: 10px;
+
+    select {
+      margin-right: 10px;
+    }
+  }
 }

@@ -16,6 +16,7 @@ jQuery(function($){
     var bookmarker = $('#bookmarker')
     var listbox    = bookmarker.find("#bookmark-list");
     var form       = bookmarker.find('form#bookmark-form');
+    var shareform  = bookmarker.find('form#bookmark-transfer-form');
     var path   = bookmarker.data('path');
     var method = bookmarker.data('method');
     var title  = bookmarker.data('title');
@@ -29,18 +30,13 @@ jQuery(function($){
       } else {
         $.ajax(url + "/" + id, {
           type: 'delete',
-          success: was_unpinned
+          success: new_component
         })
       }
       return false;
     });
 
-    function was_pinned(data) {
-      bookmarker.replaceWith(data);
-      init_bookmarker(url);
-    }
-
-    function was_unpinned(data) {
+    function new_component(data) {
       bookmarker.replaceWith(data);
       init_bookmarker(url);
     }
@@ -84,7 +80,7 @@ jQuery(function($){
           level: level
         },
         type: 'post',
-        success: was_pinned
+        success: new_component
       })
       form.hide();
       return false;
@@ -94,11 +90,45 @@ jQuery(function($){
       event.stopPropagation();
     });
 
+    bookmarker.find('#bookmark-share').click(function(e) {
+      e.stopPropagation();
+      $.ajax(url + "/get_users", {
+        type: 'get',
+        success: show_share_form
+      });
+      return false;
+    });
+
+    function show_share_form(data) {
+      console.log(data);
+      var select = $('select#bookmarker-new-user');
+      select.html();
+      $.each(data, function(id,name){
+        var option = $('<option>');
+        option.val(id);
+        option.html(name);
+        select.append(option);
+      });
+      shareform.show();
+    }
+
+    shareform.submit(function(){
+      var uid = $('select#bookmarker-new-user option:selected').val();
+      console.log(uid);
+      $.ajax(url + "/" + id + "/share", {
+        type: 'post',
+        data: { user_id: uid },
+        success: new_component
+      })
+      return false;
+    });
+
   }
 
   $('html').click(function() {
     $('#bookmark-form').hide();
     $('#bookmark-list').hide();
+    $('#bookmark-transfer-form').hide();
   });
 
   // $(document).on('click', '#bookmarker', function(event){
