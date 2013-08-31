@@ -100,7 +100,6 @@ jQuery(function($){
     });
 
     function show_share_form(data) {
-      console.log(data);
       var select = $('select#bookmarker-new-user');
       select.html();
       $.each(data, function(id,name){
@@ -114,7 +113,6 @@ jQuery(function($){
 
     shareform.submit(function(){
       var uid = $('select#bookmarker-new-user option:selected').val();
-      console.log(uid);
       $.ajax(url + "/" + id + "/share", {
         type: 'post',
         data: { user_id: uid },
