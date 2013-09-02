@@ -1,6 +1,7 @@
 require "bookmarker/engine"
 require "bookmarker/controller"
 require "bookmarker/rails/routes"
+require "bookmarker/rails/helper"
 
 module Bookmarker
 

@@ -1,5 +1,9 @@
 = Bookmarker
 
+== Gemfile
+
+
+
 == routes.rb
 
 Add <tt>bookmarker</tt> in the appropriate place
@@ -21,6 +25,14 @@ In you layout, use <tt><%= bookmarker admin_..._bookmarks_path %></tt> to inject
 == stylesheets/javascript
 
 <tt>//= require bookmarker/application</tt> as usual :)
+
+== Migrations
+
+<tt>rake bookmarker:install:migrations</tt>
+
+and then
+
+<tt>rake db:migrate</tt>
 
 == License
 
