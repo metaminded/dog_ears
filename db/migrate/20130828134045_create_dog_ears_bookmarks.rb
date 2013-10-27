@@ -1,4 +1,4 @@
-class CreateBookmarkerBookmarks < ActiveRecord::Migration
+class CreateDogEarsBookmarks < ActiveRecord::Migration
   def change
     create_table :bookmarker_bookmarks do |t|
       t.references :user
