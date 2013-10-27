@@ -1,17 +1,17 @@
-= Bookmarker
+= DogEars
 
 Gem for generic in-app-bookmarks and bookmark-sharing between users. Slightly WIP.
 
 == Gemfile
 
 <pre>
-  gem 'bookmarker'
+  gem 'dog_ears'
 </pre>
 
 
 == routes.rb
 
-Add <tt>bookmarker</tt> in the appropriate place
+Add <tt>dog_ears</tt> in the appropriate place
 
 == controller
 
@@ -19,21 +19,21 @@ Add a BookmarksController at the appropriate place. This needs to inherit fro yo
 
 <pre>
   class Admin::...::BookmarksController < Admin::...::ApplicationController
-    include Bookmarker::Controller
+    include DogEars::Controller
   end
 </pre>
 
 == views/layout
 
-In you layout, use <tt><%= bookmarker admin_..._bookmarks_path %></tt> to inject the required html-code
+In you layout, use <tt><%= dog_ears admin_..._bookmarks_path %></tt> to inject the required html-code
 
 == stylesheets/javascript
 
-<tt>//= require bookmarker/application</tt> as usual :)
+<tt>//= require dog_ears/application</tt> as usual :)
 
 == Migrations
 
-<tt>rake bookmarker:install:migrations</tt>
+<tt>rake dog_ears:install:migrations</tt>
 
 and then
 

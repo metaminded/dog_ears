@@ -1,6 +1,6 @@
 <% path   ||= request.env['PATH_INFO'] %>
 <% method ||= request.method %>
-<%= content_tag :div, id: 'bookmarker', class: (b && 'pinned'),
+<%= content_tag :div, id: 'dog_ears', class: (b && 'pinned'),
   data: {path: path, method: method,
     url: bookmark_url, title: b.try(:title), id: b.try(:id) } do %>
   <% if method == 'GET' && !b %>
@@ -11,16 +11,16 @@
     <button class="btn btn-mini" type="button" id='bookmark-pin'><i class="icon-remove"></i></button>
     <button class="btn btn-mini" type="button" id='bookmark-share'><i class="icon-share"></i></button>
   <% end %>
-  <% Bookmarker::Bookmark.for_user(current_user).count_by_levels.each do |l,c| %>
+  <% DogEars::Bookmark.for_user(current_user).count_by_levels.each do |l,c| %>
     <span class="badge badge-<%= l %> level" data-level="<%= l %>"><%= c %></span>
   <% end %>
   <div id="bookmark-list"></div>
   <form class="form" id="bookmark-form">
     <div class="input-append">
-      <input type="text" id="bookmarker-bookmark-name" />
+      <input type="text" id="dog_ears-bookmark-name" />
       <button class="btn" type="submit"><i class="icon-pushpin"></i></button>
     </div>
-    <input type="hidden" id="bookmarker-bookmark-level" value="0" />
+    <input type="hidden" id="dog_ears-bookmark-level" value="0" />
     <button data-level="0" class="btn btn-mini" type="button"><i class="icon-flag"></i></button>
     <button data-level="1" class="btn btn-mini btn-primary" type="button"><i class="icon-flag"></i></button>
     <button data-level="2" class="btn btn-mini btn-success" type="button"><i class="icon-flag"></i></button>
@@ -29,7 +29,7 @@
   </form>
   <form class="form" id="bookmark-transfer-form">
     <div class="input-append">
-      <select id="bookmarker-new-user"></select>
+      <select id="dog_ears-new-user"></select>
       <button class="btn" type="submit"><i class="icon-share"></i></button>
     </div>
   </form>

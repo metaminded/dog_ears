@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bookmarker (0.0.1)
+    dog_ears (0.0.1)
       rails (~> 3.2.14)
 
 GEM
@@ -92,6 +92,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bookmarker!
+  dog_ears!
   jquery-rails
   sqlite3

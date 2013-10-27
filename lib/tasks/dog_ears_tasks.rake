@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :bookmarker do
+# task :dog_ears do
 #   # Task goes here
 # end

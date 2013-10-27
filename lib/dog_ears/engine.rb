@@ -1,5 +1,5 @@
-module Bookmarker
+module DogEars
   class Engine < ::Rails::Engine
-    isolate_namespace Bookmarker
+    isolate_namespace DogEars
   end
 end

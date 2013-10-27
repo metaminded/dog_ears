@@ -1,2 +1,2 @@
-Bookmarker::Engine.routes.draw do
+DogEars::Engine.routes.draw do
 end

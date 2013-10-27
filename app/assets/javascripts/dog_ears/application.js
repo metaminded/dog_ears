@@ -12,22 +12,22 @@
 //
 
 jQuery(function($){
-  function init_bookmarker(url) {
-    var bookmarker = $('#bookmarker')
-    var listbox    = bookmarker.find("#bookmark-list");
-    var form       = bookmarker.find('form#bookmark-form');
-    var shareform  = bookmarker.find('form#bookmark-transfer-form');
-    var path   = bookmarker.data('path');
-    var method = bookmarker.data('method');
-    var title  = bookmarker.data('title');
-    var id     = bookmarker.data('id');
-    var pinned = bookmarker.hasClass('pinned');
+  function init_dog_ears(url) {
+    var dog_ears = $('#dog_ears')
+    var listbox    = dog_ears.find("#bookmark-list");
+    var form       = dog_ears.find('form#bookmark-form');
+    var shareform  = dog_ears.find('form#bookmark-transfer-form');
+    var path   = dog_ears.data('path');
+    var method = dog_ears.data('method');
+    var title  = dog_ears.data('title');
+    var id     = dog_ears.data('id');
+    var pinned = dog_ears.hasClass('pinned');
 
-    bookmarker.find('#bookmark-pin').click(function(e) {
+    dog_ears.find('#bookmark-pin').click(function(e) {
       e.stopPropagation();
       if(!pinned) {
-        $('#bookmarker-bookmark-level').val(0);
-        $('#bookmarker-bookmark-name').val(window.title);
+        $('#dog_ears-bookmark-level').val(0);
+        $('#dog_ears-bookmark-name').val(window.title);
         form.show();
       } else {
         $.ajax(url + "/" + id, {
@@ -38,21 +38,21 @@ jQuery(function($){
       return false;
     });
 
-    bookmarker.find('.bookmark-title').click(function(e) {
+    dog_ears.find('.bookmark-title').click(function(e) {
       e.stopPropagation();
-      $('#bookmarker-bookmark-level').val(0);
-      $('#bookmarker-bookmark-name').val(title);
+      $('#dog_ears-bookmark-level').val(0);
+      $('#dog_ears-bookmark-name').val(title);
       form.show();
       return false;
     });
 
 
     function new_component(data) {
-      bookmarker.replaceWith(data);
-      init_bookmarker(url);
+      dog_ears.replaceWith(data);
+      init_dog_ears(url);
     }
 
-    bookmarker.find('span.level').click(function(e) {
+    dog_ears.find('span.level').click(function(e) {
       e.stopPropagation();
       var span = $(this);
       $.ajax(url, {
@@ -75,15 +75,15 @@ jQuery(function($){
       listbox.show();
     }
 
-    bookmarker.find('button[data-level]').click(function(){
-      bookmarker.find('button[type="submit"]').attr('class', $(this).attr('class')).removeClass('btn-mini');
-      bookmarker.find('#bookmarker-bookmark-level').val($(this).data('level'));
+    dog_ears.find('button[data-level]').click(function(){
+      dog_ears.find('button[type="submit"]').attr('class', $(this).attr('class')).removeClass('btn-mini');
+      dog_ears.find('#dog_ears-bookmark-level').val($(this).data('level'));
     })
 
     form.submit(function(event){
       event.stopPropagation();
-      var level = $('#bookmarker-bookmark-level').val();
-      var name  = $('#bookmarker-bookmark-name').val();
+      var level = $('#dog_ears-bookmark-level').val();
+      var name  = $('#dog_ears-bookmark-name').val();
       $.ajax(url, {
         data: {
           path: path,
@@ -97,11 +97,11 @@ jQuery(function($){
       return false;
     });
 
-    $('#bookmarker').click(function(event){
+    $('#dog_ears').click(function(event){
       event.stopPropagation();
     });
 
-    bookmarker.find('#bookmark-share').click(function(e) {
+    dog_ears.find('#bookmark-share').click(function(e) {
       e.stopPropagation();
       $.ajax(url + "/get_users", {
         type: 'get',
@@ -111,7 +111,7 @@ jQuery(function($){
     });
 
     function show_share_form(data) {
-      var select = $('select#bookmarker-new-user');
+      var select = $('select#dog_ears-new-user');
       select.html();
       $.each(data, function(id,name){
         var option = $('<option>');
@@ -123,7 +123,7 @@ jQuery(function($){
     }
 
     shareform.submit(function(){
-      var uid = $('select#bookmarker-new-user option:selected').val();
+      var uid = $('select#dog_ears-new-user option:selected').val();
       $.ajax(url + "/" + id + "/share", {
         type: 'post',
         data: { user_id: uid },
@@ -140,9 +140,9 @@ jQuery(function($){
     $('#bookmark-transfer-form').hide();
   });
 
-  // $(document).on('click', '#bookmarker', function(event){
+  // $(document).on('click', '#dog_ears', function(event){
   //   event.stopPropagation();
   // });
 
-  init_bookmarker($("#bookmarker").data('url'));
+  init_dog_ears($("#dog_ears").data('url'));
 });

@@ -1,4 +1,4 @@
-module Bookmarker
+module DogEars
   class Bookmark < ActiveRecord::Base
     # attr_accessible :title, :body
     LEVELS = ['none', 'info', 'success', 'warning', 'important']

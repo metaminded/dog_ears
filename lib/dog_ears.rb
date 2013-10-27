@@ -1,9 +1,9 @@
-require "bookmarker/engine"
-require "bookmarker/controller"
-require "bookmarker/rails/routes"
-require "bookmarker/rails/helper"
+require "dog_ears/engine"
+require "dog_ears/controller"
+require "dog_ears/rails/routes"
+require "dog_ears/rails/helper"
 
-module Bookmarker
+module DogEars
 
   def self.bookmark(user, path, title, level=nil)
     b = Bookmark.new do |b|

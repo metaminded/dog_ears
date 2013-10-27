@@ -1,3 +1,3 @@
 module ApplicationHelper
-  include BookmarkerHelper
+  include DogEarsHelper
 end

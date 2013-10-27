@@ -4,7 +4,7 @@ require "active_support/core_ext/hash/slice"
 module ActionDispatch::Routing
   class Mapper
 
-    def bookmarker(options={})
+    def dog_ears(options={})
       options[:as]          ||= @scope[:as]     if @scope[:as].present?
       options[:module]      ||= @scope[:module] if @scope[:module].present?
       options[:path_prefix] ||= @scope[:path]   if @scope[:path].present?
