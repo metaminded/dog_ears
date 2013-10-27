@@ -38,6 +38,7 @@ div#bookmarker {
   }
 
   #bookmark-list, #bookmark-form, #bookmark-transfer-form {
+    white-space: nowrap;
     position: fixed;
     bottom: 32px;
     right: 0px;
@@ -57,6 +58,7 @@ div#bookmarker {
 
   #bookmark-list {
     padding: 0px;
+    overflow: scroll;
 
     ul {
       padding: 0;

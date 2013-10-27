@@ -26,6 +26,8 @@ jQuery(function($){
     bookmarker.find('#bookmark-pin').click(function(e) {
       e.stopPropagation();
       if(!pinned) {
+        $('#bookmarker-bookmark-level').val(0);
+        $('#bookmarker-bookmark-name').val(window.title);
         form.show();
       } else {
         $.ajax(url + "/" + id, {
@@ -35,6 +37,15 @@ jQuery(function($){
       }
       return false;
     });
+
+    bookmarker.find('.bookmark-title').click(function(e) {
+      e.stopPropagation();
+      $('#bookmarker-bookmark-level').val(0);
+      $('#bookmarker-bookmark-name').val(title);
+      form.show();
+      return false;
+    });
+
 
     function new_component(data) {
       bookmarker.replaceWith(data);

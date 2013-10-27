@@ -8,7 +8,7 @@
   <% end %>
   <span class="bookmark-title label label-<%= b.try(:level) %>"><%= b.try(:title) %></span>
   <% if b %>
-    <button class="btn btn-mini" type="button" id='bookmark-pin'><i class="icon-trash"></i></button>
+    <button class="btn btn-mini" type="button" id='bookmark-pin'><i class="icon-remove"></i></button>
     <button class="btn btn-mini" type="button" id='bookmark-share'><i class="icon-share"></i></button>
   <% end %>
   <% Bookmarker::Bookmark.for_user(current_user).count_by_levels.each do |l,c| %>

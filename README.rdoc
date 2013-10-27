@@ -1,7 +1,12 @@
 = Bookmarker
 
+Gem for generic in-app-bookmarks and bookmark-sharing between users. Slightly WIP.
+
 == Gemfile
 
+<pre>
+  gem 'bookmarker'
+</pre>
 
 
 == routes.rb
@@ -37,3 +42,5 @@ and then
 == License
 
 This project rocks and uses MIT-LICENSE.
+
+Copyright (c) 2013 by Peter Horn, Provideal GmbH
