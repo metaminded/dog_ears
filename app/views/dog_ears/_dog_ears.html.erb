@@ -1,6 +1,6 @@
 <% path   ||= request.env['PATH_INFO'] %>
 <% method ||= request.method %>
-<%= content_tag :div, id: 'dog_ears', class: (b && 'pinned'),
+<%= content_tag :div, id: 'dog-ears', class: (b && 'pinned'),
   data: {path: path, method: method,
     url: bookmark_url, title: b.try(:title), id: b.try(:id) } do %>
   <% if method == 'GET' && !b %>
@@ -17,19 +17,21 @@
   <div id="bookmark-list"></div>
   <form class="form" id="bookmark-form">
     <div class="input-append">
-      <input type="text" id="dog_ears-bookmark-name" />
+      <input type="text" id="dog-ears-bookmark-name" />
       <button class="btn" type="submit"><i class="icon-pushpin"></i></button>
     </div>
-    <input type="hidden" id="dog_ears-bookmark-level" value="0" />
-    <button data-level="0" class="btn btn-mini" type="button"><i class="icon-flag"></i></button>
-    <button data-level="1" class="btn btn-mini btn-primary" type="button"><i class="icon-flag"></i></button>
-    <button data-level="2" class="btn btn-mini btn-success" type="button"><i class="icon-flag"></i></button>
-    <button data-level="3" class="btn btn-mini btn-warning" type="button"><i class="icon-flag"></i></button>
-    <button data-level="4" class="btn btn-mini btn-danger" type="button"><i class="icon-flag"></i></button>
+    <div style="display:block">
+      <input type="hidden" id="dog-ears-bookmark-level" value="0" />
+      <button data-level="0" class="btn btn-mini" type="button"><i class="icon-flag"></i></button>
+      <button data-level="1" class="btn btn-mini btn-primary" type="button"><i class="icon-flag"></i></button>
+      <button data-level="2" class="btn btn-mini btn-success" type="button"><i class="icon-flag"></i></button>
+      <button data-level="3" class="btn btn-mini btn-warning" type="button"><i class="icon-flag"></i></button>
+      <button data-level="4" class="btn btn-mini btn-danger" type="button"><i class="icon-flag"></i></button>
+    </div>
   </form>
   <form class="form" id="bookmark-transfer-form">
     <div class="input-append">
-      <select id="dog_ears-new-user"></select>
+      <select id="dog-ears-new-user"></select>
       <button class="btn" type="submit"><i class="icon-share"></i></button>
     </div>
   </form>

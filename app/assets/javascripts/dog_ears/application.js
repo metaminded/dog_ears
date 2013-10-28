@@ -13,7 +13,7 @@
 
 jQuery(function($){
   function init_dog_ears(url) {
-    var dog_ears = $('#dog_ears')
+    var dog_ears = $('#dog-ears')
     var listbox    = dog_ears.find("#bookmark-list");
     var form       = dog_ears.find('form#bookmark-form');
     var shareform  = dog_ears.find('form#bookmark-transfer-form');
@@ -26,8 +26,8 @@ jQuery(function($){
     dog_ears.find('#bookmark-pin').click(function(e) {
       e.stopPropagation();
       if(!pinned) {
-        $('#dog_ears-bookmark-level').val(0);
-        $('#dog_ears-bookmark-name').val(window.title);
+        $('#dog-ears-bookmark-level').val(0);
+        $('#dog-ears-bookmark-name').val(document.title);
         form.show();
       } else {
         $.ajax(url + "/" + id, {
@@ -40,8 +40,8 @@ jQuery(function($){
 
     dog_ears.find('.bookmark-title').click(function(e) {
       e.stopPropagation();
-      $('#dog_ears-bookmark-level').val(0);
-      $('#dog_ears-bookmark-name').val(title);
+      $('#dog-ears-bookmark-level').val(0);
+      $('#dog-ears-bookmark-name').val(title);
       form.show();
       return false;
     });
@@ -77,13 +77,13 @@ jQuery(function($){
 
     dog_ears.find('button[data-level]').click(function(){
       dog_ears.find('button[type="submit"]').attr('class', $(this).attr('class')).removeClass('btn-mini');
-      dog_ears.find('#dog_ears-bookmark-level').val($(this).data('level'));
+      dog_ears.find('#dog-ears-bookmark-level').val($(this).data('level'));
     })
 
     form.submit(function(event){
       event.stopPropagation();
-      var level = $('#dog_ears-bookmark-level').val();
-      var name  = $('#dog_ears-bookmark-name').val();
+      var level = $('#dog-ears-bookmark-level').val();
+      var name  = $('#dog-ears-bookmark-name').val();
       $.ajax(url, {
         data: {
           path: path,
@@ -97,7 +97,7 @@ jQuery(function($){
       return false;
     });
 
-    $('#dog_ears').click(function(event){
+    $('#dog-ears').click(function(event){
       event.stopPropagation();
     });
 
@@ -111,7 +111,7 @@ jQuery(function($){
     });
 
     function show_share_form(data) {
-      var select = $('select#dog_ears-new-user');
+      var select = $('select#dog-ears-new-user');
       select.html();
       $.each(data, function(id,name){
         var option = $('<option>');
@@ -123,7 +123,7 @@ jQuery(function($){
     }
 
     shareform.submit(function(){
-      var uid = $('select#dog_ears-new-user option:selected').val();
+      var uid = $('select#dog-ears-new-user option:selected').val();
       $.ajax(url + "/" + id + "/share", {
         type: 'post',
         data: { user_id: uid },
@@ -144,5 +144,5 @@ jQuery(function($){
   //   event.stopPropagation();
   // });
 
-  init_dog_ears($("#dog_ears").data('url'));
+  init_dog_ears($("#dog-ears").data('url'));
 });
