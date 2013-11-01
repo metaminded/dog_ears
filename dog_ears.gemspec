@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.version     = DogEars::VERSION
   s.authors     = ["Peter Horn, Provideal GmbH"]
   s.email       = ["ph@provideal.net"]
+  s.license     = 'MIT'
   s.homepage    = "https://github.com/provideal/dog_ears"
   s.summary     = "Generic in-app-bookmarks and bookmark-sharing"
   s.description = "Generic in-app-bookmarks and bookmark-sharing based on URL routes."
