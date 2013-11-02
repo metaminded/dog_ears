@@ -1,4 +1,4 @@
-module DogEarsHelper
+module DogEars::ViewHelpers
 
   def dog_ears(bookmark_url)
     raise "give the path for dog_ears" unless bookmark_url.present?
